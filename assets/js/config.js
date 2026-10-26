@@ -10,28 +10,24 @@ window.CVT_CONFIG = {
     {
       id: "atendimento1",
       label: "Atendimento 1",
-      desc: "Orçamentos, treinamentos e serviços",
       phone: "5567992934994",
       display: "(67) 9 9293-4994"
     },
     {
       id: "atendimento2",
       label: "Atendimento 2",
-      desc: "Orçamentos, treinamentos e serviços",
       phone: "5517996580793",
       display: "(17) 9 9658-0793"
     },
     {
       id: "atendimento3",
       label: "Atendimento 3",
-      desc: "Orçamentos, treinamentos e serviços",
       phone: "5567993249344",
       display: "(67) 9 9324-9344"
     },
     {
       id: "administrativo",
       label: "Administrativo e Financeiro",
-      desc: "Pagamentos, contratos e documentos",
       phone: "5517991213921",
       display: "(17) 9 9121-3921",
       message: "Olá! Vim pelo site da CVT Treinamentos e gostaria de falar com o setor Administrativo e Financeiro."
@@ -46,6 +42,5 @@ window.CVT_CONFIG = {
 
   email: "cvt.treinamento@outlook.com",
   instagram: "https://www.instagram.com/cvt.treinamentos/",
-  linktree: "https://linktr.ee/cvttreinamentos",
   facebook: "https://www.facebook.com/profile.php?id=100077913902114" // Vazio = ícone oculto.
 };

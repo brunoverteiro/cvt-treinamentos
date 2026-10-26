@@ -12,8 +12,9 @@ cvt-landing/
     ├── css/style.css     Estilos (cores e fontes no topo, em :root)
     ├── js/config.js      ← TELEFONES, MENSAGENS DO WHATSAPP E REDES SOCIAIS
     ├── js/main.js        Interações (menu, abas, WhatsApp, galeria)
-    ├── img/              Logo, fotos, favicon e imagem de compartilhamento
-    └── video/            hero-loop.mp4 (topo, sem som) e vídeo completo da galeria
+    ├── img/              Logo, favicon, imagem de compartilhamento e foto da seção Sobre
+    │   └── galeria/      Fotos da galeria: nome.jpg (ampliada) + nome-thumb.jpg (600×600)
+    └── video/            hero-loop.mp4 (topo, sem som) e brigada-florestal-aceiro.mp4 (galeria)
 ```
 
 ## Como visualizar
@@ -25,15 +26,16 @@ cvt-landing/
 
 | O quê | Onde |
 |---|---|
-| Telefones, nomes dos setores, mensagens do WhatsApp | `assets/js/config.js` |
-| Link do Facebook | `assets/js/config.js` → `facebook: "https://..."` (o ícone aparece sozinho) |
+| Telefones, setores, mensagens do WhatsApp, Instagram e Facebook | `assets/js/config.js` |
 | Textos, treinamentos e serviços | `index.html` (cada seção está marcada com um comentário) |
-| Cores e fontes | topo de `assets/css/style.css` (bloco `:root`) |
+| Cores | topo de `assets/css/style.css` (bloco `:root`) |
+| Fontes | link do Google Fonts no `<head>` das duas páginas + `--font-display` / `--font-body` no `:root` |
 | Fotos | substitua os arquivos em `assets/img/` mantendo o nome, ou troque o `src` no `index.html` |
 | Vídeos | substitua os arquivos em `assets/video/` (MP4, H.264) |
 
 Para adicionar um treinamento, copie uma linha `<li><button class="course" ...>` dentro da lista
-correspondente e ajuste o código (`NR xx`), o nome e o `data-subject` (assunto que vai na mensagem).
+correspondente e ajuste o código (`NR xx`), o nome, o `data-title` e o `data-desc` (título e descrição
+mostrados na janela de atendimento) e o `data-subject` (assunto que vai na mensagem do WhatsApp).
 
 ## Como publicar
 

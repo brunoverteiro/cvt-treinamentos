@@ -30,7 +30,6 @@
     sectorList.innerHTML = CFG.whatsapp.map(function (s) {
       return '<li><a class="sector" href="' + waLink(s) + '" target="_blank" rel="noopener">' +
         '<span class="sector-label">' + s.label + "</span>" +
-        '<span class="sector-desc">' + s.desc + "</span>" +
         '<span class="sector-phone">' + s.display + "</span>" +
         '<span class="sector-cta">' + icon("i-wa") + "Conversar no WhatsApp</span>" +
         "</a></li>";
@@ -214,7 +213,7 @@
     var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
   }
 
-  /* ---------- Facebook (só aparece se configurado) ---------- */
+  /* ---------- Redes sociais (Facebook só aparece se configurado) ---------- */
   $$('[data-social="instagram"]').forEach(function (a) { if (CFG.instagram) a.href = CFG.instagram; });
   $$('[data-social="facebook"]').forEach(function (a) {
     if (CFG.facebook) { a.href = CFG.facebook; a.hidden = false; }
@@ -223,7 +222,7 @@
   /* ---------- Ano no rodapé ---------- */
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  /* ---------- Observadores: animações, botão flutuante, menu ativo ---------- */
+  /* ---------- Observadores: animações, menu ativo, vídeo do topo ---------- */
   if ("IntersectionObserver" in window) {
     // Animação de entrada apenas para o que está abaixo da dobra
     var vh = window.innerHeight;
@@ -238,12 +237,6 @@
       });
     }
 
-    // Botão flutuante: aparece após o hero e some na seção de contato
-    var fab = $(".wa-fab");
-    var heroVisible = true, contactVisible = false;
-    function updateFab() { fab.classList.toggle("is-visible", !heroVisible && !contactVisible); }
-    new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; updateFab(); }, { threshold: 0.15 }).observe($(".hero"));
-    new IntersectionObserver(function (en) { contactVisible = en[0].isIntersecting; updateFab(); }, { threshold: 0.2 }).observe($("#contato"));
 
     // Link ativo no menu
     var links = $$(".main-nav a");
