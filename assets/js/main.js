@@ -215,8 +215,10 @@
   }
 
   /* ---------- Facebook (só aparece se configurado) ---------- */
-  var fb = $("[data-facebook]");
-  if (fb && CFG.facebook) { fb.href = CFG.facebook; fb.hidden = false; }
+  $$('[data-social="instagram"]').forEach(function (a) { if (CFG.instagram) a.href = CFG.instagram; });
+  $$('[data-social="facebook"]').forEach(function (a) {
+    if (CFG.facebook) { a.href = CFG.facebook; a.hidden = false; }
+  });
 
   /* ---------- Ano no rodapé ---------- */
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });

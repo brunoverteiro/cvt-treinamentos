@@ -546,3 +546,28 @@ a.channel:hover { border-color: var(--blue); }
 /* Largura dos títulos e rótulos (ajuste em --stretch-display) */
 .btn, .eyebrow, .brand-text strong, .tab, .link-btn, .course .code, .course .name, .sector-label,
 .sector-cta, .course-more, .main-nav a, .footer-brand strong { font-stretch: var(--stretch-display); }
+
+/* ---------- Redes sociais ---------- */
+.social { display: flex; align-items: center; gap: 8px; }
+.social-btn {
+  display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--line); color: var(--navy); background: #fff;
+  transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.social-btn .ico { width: 20px; height: 20px; }
+.social-btn:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.social-btn.on-dark { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .18); color: #fff; }
+.social-btn.on-dark:hover { background: #fff; color: var(--navy); }
+.social-header { display: none; margin-right: 4px; }
+.social-footer { margin-top: 16px; }
+.social-menu { gap: 10px; padding-top: 16px; flex-wrap: wrap; }
+.main-nav .social-pill {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px;
+  border: 1px solid var(--line); border-radius: 999px; text-decoration: none; border-bottom: 1px solid var(--line);
+  color: var(--navy); font-weight: 700; font-size: var(--fs-sm);
+}
+.main-nav .social-pill .ico { width: 20px; height: 20px; color: var(--blue); }
+@media (min-width: 960px) {
+  .social-header { display: flex; }
+  .social-menu { display: none; }
+}
