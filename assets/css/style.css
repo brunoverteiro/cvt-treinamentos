@@ -24,8 +24,8 @@
   --on-dark-muted: #AEB8D3;
 
   /* Tipografia */
-  --font-display: "Raleway", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-body: "Raleway", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Josefin Sans", "Raleway", "Segoe UI", system-ui, sans-serif;  /* títulos, botões e rótulos */
+  --font-body: "Raleway", "Segoe UI", system-ui, -apple-system, sans-serif;     /* texto corrido */
   --stretch-display: normal;
 
   /* Escala */
@@ -571,3 +571,6 @@ a.channel:hover { border-color: var(--blue); }
   .social-header { display: flex; }
   .social-menu { display: none; }
 }
+
+/* Josefin Sans vai até o peso 700 */
+h1, h2, h3, .btn, .eyebrow, .brand-text strong, .tab, .code, .sector-label { font-weight: 700; }
