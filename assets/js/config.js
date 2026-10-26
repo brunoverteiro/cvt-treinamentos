@@ -47,5 +47,5 @@ window.CVT_CONFIG = {
   email: "cvt.treinamento@outlook.com",
   instagram: "https://www.instagram.com/cvt.treinamentos/",
   linktree: "https://linktr.ee/cvttreinamentos",
-  facebook: "" // Cole aqui o link público da página do Facebook. Vazio = ícone oculto.
+  facebook: "https://www.facebook.com/profile.php?id=100077913902114" // Vazio = ícone oculto.
 };
