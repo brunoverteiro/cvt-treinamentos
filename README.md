@@ -31,7 +31,7 @@ cvt-landing/
 | Textos, treinamentos e serviços | `index.html` (cada seção está marcada com um comentário) |
 | Cores | topo de `assets/css/style.css` (bloco `:root`) |
 | Tamanhos, espaçamentos e raios | também no `:root`; use só os valores da escala listada no topo do CSS |
-| Fontes | link do Google Fonts no `<head>` das duas páginas + `--font-display` / `--font-body` no `:root` |
+| Fonte (Manrope) | link do Google Fonts no `<head>` das páginas + `--font` no `:root` |
 | Fotos | substitua os arquivos em `assets/img/` mantendo o nome, ou troque o `src` no `index.html` |
 | Vídeos | substitua os arquivos em `assets/video/` (MP4, H.264) |
 
