@@ -116,19 +116,20 @@
   });
 
   /* ---------- Cabeçalho e menu mobile ---------- */
-  var header = $(".site-header");
   var toggle = $(".menu-toggle");
   var nav = $("#menu");
 
   function closeMenu() {
     if (!nav.classList.contains("is-open")) return;
     nav.classList.remove("is-open");
+    doc.classList.remove("menu-open");
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "Abrir menu");
   }
   toggle.addEventListener("click", function () {
     var open = !nav.classList.contains("is-open");
     nav.classList.toggle("is-open", open);
+    doc.classList.toggle("menu-open", open);
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   });
@@ -138,9 +139,6 @@
     if (!e.target.closest("#menu") && !e.target.closest(".menu-toggle")) closeMenu();
   });
 
-  function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 8); }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
 
   /* ---------- Abas de treinamentos ---------- */
   var tabs = $$('[role="tab"]');
@@ -199,7 +197,7 @@
       var text = btn.getAttribute("data-copy");
       var done = function () {
         btn.setAttribute("aria-label", "E-mail copiado");
-        btn.title = "Copiado!";
+        btn.title = "E-mail copiado";
         setTimeout(function () { btn.setAttribute("aria-label", "Copiar e-mail"); btn.title = ""; }, 2000);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -217,6 +215,23 @@
   $$('[data-social="instagram"]').forEach(function (a) { if (CFG.instagram) a.href = CFG.instagram; });
   $$('[data-social="facebook"]').forEach(function (a) {
     if (CFG.facebook) { a.href = CFG.facebook; a.hidden = false; }
+  });
+
+  /* ---------- Frase em destaque: cada palavra acende ao cruzar a linha ---------- */
+  $$("[data-words]").forEach(function (el) {
+    var words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(function (w) { return '<span class="w">' + w + "</span>"; }).join(" ");
+    var spans = $$(".w", el);
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      spans.forEach(function (s) { s.classList.add("on"); });
+      return;
+    }
+    var wordObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("on"); wordObs.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -40% 0px", threshold: 1 });
+    spans.forEach(function (s) { wordObs.observe(s); });
   });
 
   /* ---------- Ano no rodapé ---------- */

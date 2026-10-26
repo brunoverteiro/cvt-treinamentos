@@ -8,6 +8,7 @@ Site estático (HTML + CSS + JavaScript), sem dependências nem etapa de build.
 cvt-landing/
 ├── index.html            Página principal (todos os textos ficam aqui)
 ├── privacidade.html      Política de privacidade
+├── 404.html              Página de erro (o GitHub Pages usa automaticamente)
 └── assets/
     ├── css/style.css     Estilos (cores e fontes no topo, em :root)
     ├── js/config.js      ← TELEFONES, MENSAGENS DO WHATSAPP E REDES SOCIAIS
@@ -29,6 +30,7 @@ cvt-landing/
 | Telefones, setores, mensagens do WhatsApp, Instagram e Facebook | `assets/js/config.js` |
 | Textos, treinamentos e serviços | `index.html` (cada seção está marcada com um comentário) |
 | Cores | topo de `assets/css/style.css` (bloco `:root`) |
+| Tamanhos, espaçamentos e raios | também no `:root`; use só os valores da escala listada no topo do CSS |
 | Fontes | link do Google Fonts no `<head>` das duas páginas + `--font-display` / `--font-body` no `:root` |
 | Fotos | substitua os arquivos em `assets/img/` mantendo o nome, ou troque o `src` no `index.html` |
 | Vídeos | substitua os arquivos em `assets/video/` (MP4, H.264) |

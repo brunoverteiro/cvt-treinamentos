@@ -27,10 +27,10 @@ window.CVT_CONFIG = {
     },
     {
       id: "administrativo",
-      label: "Administrativo e Financeiro",
+      label: "Administrativo e financeiro",
       phone: "5517991213921",
       display: "(17) 9 9121-3921",
-      message: "Olá! Vim pelo site da CVT Treinamentos e gostaria de falar com o setor Administrativo e Financeiro."
+      message: "Olá! Vim pelo site da CVT Treinamentos e gostaria de falar com o setor administrativo e financeiro."
     }
   ],
 
