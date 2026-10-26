@@ -24,9 +24,9 @@
   --on-dark-muted: #AEB8D3;
 
   /* Tipografia */
-  --font-display: "Archivo", "Arial", system-ui, -apple-system, sans-serif;
-  --font-body: "Archivo", "Arial", system-ui, -apple-system, sans-serif;
-  --stretch-display: 118%;   /* largura expandida nos títulos e rótulos */
+  --font-display: "Raleway", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Raleway", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --stretch-display: normal;
 
   /* Escala */
   --fs-xs: .8125rem;
@@ -57,6 +57,9 @@ body {
   color: var(--ink);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+  font-weight: 500;            /* Raleway 400 fica fina demais em textos longos */
 }
 img, video { max-width: 100%; display: block; }
 a { color: var(--blue); }
@@ -540,6 +543,6 @@ a.channel:hover { border-color: var(--blue); }
   font-family: var(--font-display); font-weight: 700; color: var(--navy);
 }
 
-/* Archivo expandida nos elementos de destaque */
+/* Largura dos títulos e rótulos (ajuste em --stretch-display) */
 .btn, .eyebrow, .brand-text strong, .tab, .link-btn, .course .code, .course .name, .sector-label,
 .sector-cta, .course-more, .main-nav a, .footer-brand strong { font-stretch: var(--stretch-display); }
