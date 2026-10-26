@@ -24,8 +24,9 @@
   --on-dark-muted: #AEB8D3;
 
   /* Tipografia */
-  --font-display: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Archivo", "Arial", system-ui, -apple-system, sans-serif;
+  --font-body: "Archivo", "Arial", system-ui, -apple-system, sans-serif;
+  --stretch-display: 118%;   /* largura expandida nos títulos e rótulos */
 
   /* Escala */
   --fs-xs: .8125rem;
@@ -60,7 +61,7 @@ body {
 img, video { max-width: 100%; display: block; }
 a { color: var(--blue); }
 button { font: inherit; color: inherit; cursor: pointer; }
-h1, h2, h3 { font-family: var(--font-display); color: var(--navy); line-height: 1.2; margin: 0; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--font-display); font-stretch: var(--stretch-display); color: var(--navy); line-height: 1.2; margin: 0; text-wrap: balance; }
 p { margin: 0; }
 ul { margin: 0; padding: 0; list-style: none; }
 [hidden] { display: none !important; }
@@ -140,7 +141,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .header-inner { display: flex; align-items: center; gap: 16px; height: var(--header-h); }
 
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
-.brand img { width: 40px; height: auto; }
+.brand img { width: 46px; height: auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
 .brand-text strong { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 1.0625rem; white-space: nowrap; }
 .brand-text small { font-size: .6875rem; color: var(--muted); letter-spacing: .02em; white-space: nowrap; }
@@ -443,7 +444,7 @@ a.channel:hover { border-color: var(--blue); }
 .footer-brand strong { font-family: var(--font-display); color: #fff; font-size: 1.0625rem; }
 .footer-brand p { margin-top: 4px; }
 .footer-logo { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 12px; background: #fff; }
-.footer-logo img { width: 36px; height: auto; }
+.footer-logo img { width: 42px; height: auto; }
 .legal { margin-bottom: 10px; line-height: 1.7; }
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, .1);
@@ -538,3 +539,7 @@ a.channel:hover { border-color: var(--blue); }
   margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
   font-family: var(--font-display); font-weight: 700; color: var(--navy);
 }
+
+/* Archivo expandida nos elementos de destaque */
+.btn, .eyebrow, .brand-text strong, .tab, .link-btn, .course .code, .course .name, .sector-label,
+.sector-cta, .course-more, .main-nav a, .footer-brand strong { font-stretch: var(--stretch-display); }
