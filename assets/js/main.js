@@ -41,9 +41,12 @@
   var dialog = $("#wa-dialog");
   var dialogList = $("#wa-dialog-list");
   var dialogSubject = $("#wa-subject");
+  var dialogTitle = $("#wa-dialog-title");
+  var dialogDesc = $("#wa-desc");
+  var dialogHint = $(".wa-hint");
   var lastTrigger = null;
 
-  function renderDialog(subject) {
+  function renderDialog(subject, title, desc) {
     dialogList.innerHTML = CFG.whatsapp.map(function (s) {
       return '<li><a class="sector" href="' + waLink(s, subject) + '" target="_blank" rel="noopener">' +
         '<span class="sector-icon">' + icon("i-wa") + "</span>" +
@@ -52,17 +55,29 @@
         icon("i-arrow", "sector-arrow") +
         "</a></li>";
     }).join("");
-    if (subject) {
-      dialogSubject.textContent = "Assunto: " + subject;
-      dialogSubject.hidden = false;
-    } else {
+    if (title && desc) {
+      // Aberto a partir de um treinamento: nome, descrição e, em seguida, os contatos
+      dialogTitle.textContent = title;
+      dialogDesc.textContent = desc;
+      dialogDesc.hidden = false;
       dialogSubject.hidden = true;
+      dialogHint.textContent = "Solicite informações pelo WhatsApp:";
+    } else {
+      dialogTitle.textContent = "Atendimento pelo WhatsApp";
+      dialogDesc.hidden = true;
+      dialogHint.textContent = "Escolha um setor. A conversa abre em uma nova aba com a mensagem pronta.";
+      if (subject) {
+        dialogSubject.textContent = "Assunto: " + subject;
+        dialogSubject.hidden = false;
+      } else {
+        dialogSubject.hidden = true;
+      }
     }
   }
 
   function openDialog(subject, trigger) {
     lastTrigger = trigger || null;
-    renderDialog(subject);
+    renderDialog(subject, trigger && trigger.getAttribute("data-title"), trigger && trigger.getAttribute("data-desc"));
     closeMenu();
     if (typeof dialog.showModal === "function") {
       dialog.showModal();

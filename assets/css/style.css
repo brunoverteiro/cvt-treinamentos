@@ -529,3 +529,12 @@ a.channel:hover { border-color: var(--blue); }
 .legal-page p, .legal-page li { color: var(--muted); }
 .legal-page ul { list-style: disc; padding-left: 1.25em; display: grid; gap: 6px; }
 .legal-page p + p { margin-top: 10px; }
+
+/* Descrição do treinamento dentro da janela de atendimento */
+.wa-desc {
+  margin-top: 10px; font-size: var(--fs-sm); line-height: 1.55; color: var(--ink);
+}
+.wa-desc:not([hidden]) + .wa-hint, .wa-dialog-head:has(.wa-desc:not([hidden])) + .wa-hint {
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-family: var(--font-display); font-weight: 700; color: var(--navy);
+}
