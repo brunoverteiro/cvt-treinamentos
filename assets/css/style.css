@@ -380,24 +380,28 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (min-width: 1000px) { .diffs { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 /* Galeria */
-.gallery { display: grid; gap: 16px; }
-.gallery-video { margin: 0; }
-.gallery-video video {
-  width: 100%; aspect-ratio: 9 / 16; max-height: 78vh; object-fit: cover;
-  border-radius: var(--radius); background: var(--navy);
-}
-.gallery-video figcaption, .lightbox figcaption { margin-top: 10px; font-size: var(--fs-xs); color: var(--muted); }
-.gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .gallery-item {
   display: block; width: 100%; padding: 0; border: 0; background: var(--bg-alt);
-  border-radius: var(--radius); overflow: hidden; aspect-ratio: 3 / 4;
+  border-radius: 10px; overflow: hidden; aspect-ratio: 1 / 1;
 }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
 .gallery-item:hover img { transform: scale(1.04); }
-@media (min-width: 900px) {
-  .gallery { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 20px; align-items: start; }
-  .gallery-video video { max-height: none; }
-  .gallery-grid { gap: 20px; }
+.gallery-videos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+.gallery-video { margin: 0; min-width: 0; }
+.gallery-video video {
+  width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
+  border-radius: var(--radius); background: var(--navy);
+}
+.gallery-video figcaption, .lightbox figcaption { margin-top: 10px; font-size: var(--fs-xs); color: var(--muted); }
+@media (min-width: 760px) {
+  .gallery-grid { gap: 16px; }
+  .gallery-item { border-radius: var(--radius); }
+  .gallery-videos { gap: 20px; margin-top: 40px; }
+}
+@media (min-width: 1000px) {
+  .gallery-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 24px; align-items: start; }
+  .gallery-videos { margin-top: 0; gap: 16px; }
 }
 
 /* Contato */
