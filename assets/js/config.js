@@ -41,6 +41,10 @@ window.CVT_CONFIG = {
   subjectMessage: "Olá! Vim pelo site da CVT Treinamentos e gostaria de informações sobre: {assunto}.",
 
   email: "cvt.treinamento@outlook.com",
+
+  // Formulário de e-mail (FormSubmit). Na primeira mensagem, a CVT recebe um
+  // e-mail de ativação e precisa clicar no link para o formulário funcionar.
+  formEndpoint: "https://formsubmit.co/ajax/cvt.treinamento@outlook.com",
   instagram: "https://www.instagram.com/cvt.treinamentos/",
   facebook: "https://www.facebook.com/profile.php?id=100077913902114" // Vazio = ícone oculto.
 };

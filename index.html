@@ -356,13 +356,53 @@
       <header class="section-head">
         <p class="eyebrow">Contato</p>
         <h2 id="contato-title">Fale com a nossa equipe</h2>
-        <p>Escolha o setor e converse pelo WhatsApp.</p>
+        <p>Escolha o setor e converse pelo WhatsApp, ou envie um e-mail pelo formulário.</p>
       </header>
 
       <ul class="sectors" id="sector-list">
         <!-- Preenchido a partir de assets/js/config.js -->
       </ul>
       <noscript><p><a href="https://linktr.ee/cvttreinamentos">Ver todos os contatos da CVT Treinamentos</a></p></noscript>
+
+      <div class="contact-grid">
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/cvt.treinamento@outlook.com" method="POST" novalidate>
+          <h3>Enviar e-mail</h3>
+          <p class="form-intro">A mensagem chega no e-mail da CVT, e a resposta vai para o e-mail que você informar.</p>
+
+          <div class="field">
+            <label for="cf-nome">Nome</label>
+            <input id="cf-nome" name="nome" type="text" autocomplete="name" required aria-describedby="cf-nome-erro">
+            <p class="field-error" id="cf-nome-erro" hidden></p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-email">E-mail</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="cf-email-erro">
+              <p class="field-error" id="cf-email-erro" hidden></p>
+            </div>
+            <div class="field">
+              <label for="cf-telefone">Telefone <span class="optional">(opcional)</span></label>
+              <input id="cf-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-mensagem">Mensagem</label>
+            <textarea id="cf-mensagem" name="mensagem" rows="5" required aria-describedby="cf-mensagem-erro" placeholder="Ex.: Preciso de um orçamento de NR 35 para 12 colaboradores."></textarea>
+            <p class="field-error" id="cf-mensagem-erro" hidden></p>
+          </div>
+
+          <!-- Campos do FormSubmit -->
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="Novo contato pelo site da CVT Treinamentos">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://brunoverteiro.github.io/cvt-treinamentos/#contato">
+
+          <button class="btn btn-primary" type="submit">
+            <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>
+            <span data-label>Enviar mensagem</span>
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
 
       <div class="channels">
         <div class="channel">
@@ -383,6 +423,7 @@
           <svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>
           <div><span class="channel-label">Facebook</span><span>CVT Treinamentos</span></div>
         </a>
+      </div>
       </div>
     </div>
   </section>

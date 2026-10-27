@@ -28,6 +28,8 @@ cvt-landing/
 | O quê | Onde |
 |---|---|
 | Telefones, setores, mensagens do WhatsApp, Instagram e Facebook | `assets/js/config.js` |
+| Formulário de e-mail | `formEndpoint` em `assets/js/config.js` e o `action` do formulário no `index.html`. Na primeira mensagem, o FormSubmit manda um e-mail de ativação para a CVT; é preciso clicar no link uma vez |
+| Endereço do site (ao trocar de domínio) | `canonical`, `og:url`, `og:image` e o campo `_next` do formulário no `index.html` |
 | Textos, treinamentos e serviços | `index.html` (cada seção está marcada com um comentário) |
 | Cores | topo de `assets/css/style.css` (bloco `:root`) |
 | Tamanhos, espaçamentos e raios | também no `:root`; use só os valores da escala listada no topo do CSS |

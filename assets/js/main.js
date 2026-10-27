@@ -234,6 +234,95 @@
     spans.forEach(function (s) { wordObs.observe(s); });
   });
 
+  /* ---------- Formulário de e-mail (FormSubmit) ---------- */
+  var form = $("#contact-form");
+  if (form) {
+    var statusEl = $("#form-status");
+    var submitBtn = $('button[type="submit"]', form);
+    var submitLabel = $("[data-label]", submitBtn);
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    // Sem JavaScript o envio é normal; com ele, volta para esta mesma página.
+    form.elements._next.value = location.href.split("#")[0] + "#contato";
+
+    var rules = {
+      nome: function (v) { return v ? "" : "Informe seu nome."; },
+      email: function (v) {
+        if (!v) return "Informe seu e-mail para receber a resposta.";
+        return EMAIL_RE.test(v) ? "" : "Confira o e-mail: ele precisa ter o formato nome@empresa.com.br.";
+      },
+      mensagem: function (v) { return v ? "" : "Escreva sua mensagem."; }
+    };
+
+    function check(name) {
+      var input = form.elements[name];
+      var msg = rules[name](input.value.trim());
+      var err = $("#" + input.id + "-erro");
+      input.setAttribute("aria-invalid", msg ? "true" : "false");
+      err.textContent = msg;
+      err.hidden = !msg;
+      return !msg;
+    }
+    Object.keys(rules).forEach(function (name) {
+      form.elements[name].addEventListener("blur", function () { if (this.value) check(name); });
+      form.elements[name].addEventListener("input", function () {
+        if (this.getAttribute("aria-invalid") === "true") check(name);
+      });
+    });
+
+    function setStatus(msg, kind) {
+      statusEl.textContent = msg;
+      statusEl.className = "form-status " + (kind === "ok" ? "is-ok" : "is-error");
+      statusEl.hidden = !msg;
+    }
+    function setSending(on) {
+      submitBtn.disabled = on;
+      submitLabel.textContent = on ? "Enviando..." : "Enviar mensagem";
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      setStatus("", "ok");
+      var firstBad = null;
+      Object.keys(rules).forEach(function (name) {
+        if (!check(name) && !firstBad) firstBad = form.elements[name];
+      });
+      if (firstBad) { firstBad.focus(); return; }
+      if (form.elements._honey.value) { form.reset(); setStatus("Mensagem enviada.", "ok"); return; } // robô
+
+      var data = {
+        nome: form.elements.nome.value.trim(),
+        email: form.elements.email.value.trim(),
+        telefone: form.elements.telefone.value.trim(),
+        mensagem: form.elements.mensagem.value.trim(),
+        _subject: form.elements._subject.value,
+        _template: form.elements._template.value,
+        _honey: ""
+      };
+      setSending(true);
+      fetch(CFG.formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && (res.success === true || res.success === "true")) {
+            form.reset();
+            setStatus("Mensagem enviada. A CVT vai responder no e-mail " + data.email + ".", "ok");
+          } else if (res && /activat/i.test(res.message || "")) {
+            setStatus("O formulário ainda está sendo ativado pela CVT. Enquanto isso, fale pelo WhatsApp.", "error");
+          } else {
+            throw new Error("envio recusado");
+          }
+        })
+        .catch(function () {
+          setStatus("Não foi possível enviar agora. Tente de novo em alguns minutos ou fale pelo WhatsApp.", "error");
+        })
+        .then(function () { setSending(false); });
+    });
+  }
+
   /* ---------- Ano no rodapé ---------- */
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
