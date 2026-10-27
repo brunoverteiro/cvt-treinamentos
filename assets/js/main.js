@@ -179,7 +179,9 @@
 
   /* ---------- Galeria (lightbox) ---------- */
   var lightbox = $("#lightbox");
-  var lbImg = $("#lightbox-img");
+  var lbImg = document.createElement("img");   // criada aqui para não carregar imagem vazia
+  lbImg.id = "lightbox-img"; lbImg.alt = "";
+  if (lightbox) $("figure", lightbox).prepend(lbImg);
   var lbCap = $("#lightbox-caption");
   $$(".gallery-item").forEach(function (item) {
     item.addEventListener("click", function () {

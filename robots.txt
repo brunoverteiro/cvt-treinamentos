@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brunoverteiro.github.io/cvt-treinamentos/sitemap.xml

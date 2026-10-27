@@ -9,6 +9,7 @@ cvt-landing/
 ├── index.html            Página principal (todos os textos ficam aqui)
 ├── privacidade.html      Política de privacidade
 ├── 404.html              Página de erro (o GitHub Pages usa automaticamente)
+├── robots.txt / sitemap.xml   Ajudam o Google a encontrar o site (trocar o endereço ao mudar de domínio)
 └── assets/
     ├── css/style.css     Estilos (cores e fontes no topo, em :root)
     ├── js/config.js      ← TELEFONES, MENSAGENS DO WHATSAPP E REDES SOCIAIS
@@ -29,7 +30,7 @@ cvt-landing/
 |---|---|
 | Telefones, setores, mensagens do WhatsApp, Instagram e Facebook | `assets/js/config.js` |
 | Formulário de e-mail | `formEndpoint` em `assets/js/config.js` e o `action` do formulário no `index.html`. Na primeira mensagem, o FormSubmit manda um e-mail de ativação para a CVT; é preciso clicar no link uma vez |
-| Endereço do site (ao trocar de domínio) | `canonical`, `og:url`, `og:image` e o campo `_next` do formulário no `index.html` |
+| Endereço do site (ao trocar de domínio) | `canonical`, `og:url`, `og:image` e o campo `_next` do formulário no `index.html`, além de `robots.txt` e `sitemap.xml` |
 | Textos, treinamentos e serviços | `index.html` (cada seção está marcada com um comentário) |
 | Cores | topo de `assets/css/style.css` (bloco `:root`) |
 | Tamanhos, espaçamentos e raios | também no `:root`; use só os valores da escala listada no topo do CSS |
