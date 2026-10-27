@@ -1,4 +1,4 @@
-/* CVT Treinamentos — interações da página */
+/* CVT. Treinamentos — interações da página */
 (function () {
   "use strict";
 

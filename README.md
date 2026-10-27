@@ -1,4 +1,4 @@
-# CVT Treinamentos — Landing page
+# CVT. Treinamentos — Landing page
 
 Site estático (HTML + CSS + JavaScript), sem dependências nem etapa de build.
 

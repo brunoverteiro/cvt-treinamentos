@@ -1,5 +1,5 @@
 /*
- * CVT Treinamentos — configuração de contatos
+ * CVT. Treinamentos — configuração de contatos
  * ------------------------------------------------------------
  * Altere aqui telefones, mensagens e redes sociais.
  * Todos os botões de WhatsApp do site usam estes dados.
@@ -30,15 +30,15 @@ window.CVT_CONFIG = {
       label: "Administrativo e financeiro",
       phone: "5517991213921",
       display: "(17) 9 9121-3921",
-      message: "Olá! Vim pelo site da CVT Treinamentos e gostaria de falar com o setor administrativo e financeiro."
+      message: "Olá! Vim pelo site da CVT. Treinamentos e gostaria de falar com o setor administrativo e financeiro."
     }
   ],
 
   // Mensagem padrão (quando o visitante não escolheu um treinamento/serviço)
-  defaultMessage: "Olá! Vim pelo site da CVT Treinamentos e gostaria de solicitar um orçamento.",
+  defaultMessage: "Olá! Vim pelo site da CVT. Treinamentos e gostaria de solicitar um orçamento.",
 
   // Mensagem quando o visitante clica em um treinamento ou serviço ({assunto} é substituído)
-  subjectMessage: "Olá! Vim pelo site da CVT Treinamentos e gostaria de informações sobre: {assunto}.",
+  subjectMessage: "Olá! Vim pelo site da CVT. Treinamentos e gostaria de informações sobre: {assunto}.",
 
   email: "cvt.treinamento@outlook.com",
 
